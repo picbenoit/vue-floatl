@@ -1,8 +1,8 @@
 {
-  "name": "vue-clock-simple",
-  "version": "1.0.4",
-  "description": "A Vue.js component that displays a clock",
-  "main": "dist/vue-clock.js",
+  "name": "vue-floatl",
+  "version": "0.0.1",
+  "description": "A Vue component for floatl package (with less & css)",
+  "main": "dist/vue-floatl.min.js",
   "scripts": {
     "build": "rimraf ./dist && webpack --config ./webpack.config.js"
   },
