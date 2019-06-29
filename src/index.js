@@ -1,3 +1,5 @@
+require('./vuefloatl.less');
+
 import VueFloatl from './VueFloatl.vue';
 
 module.exports = {

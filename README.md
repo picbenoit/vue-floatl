@@ -35,7 +35,7 @@ Vue.use(VueFloatl);
 
 CSS and Less file are available there :
 - dist/vuefloatl.css
-- src/less/vuefloatl.less
+- src/vuefloatl.less
 
 ## Usage
 

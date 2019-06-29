@@ -1,61 +1,45 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-var config = {
-  output: {
-    path: path.resolve(__dirname + '/dist/'),
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: __dirname,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.css$/,
-        loader: 'style!less!css'
-      }
-    ]
-  },
-  externals: {
-    moment: 'moment'
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin( {
-      minimize : true,
-      sourceMap : false,
-      mangle: true,
-      compress: {
-        warnings: false
-      }
-    } )
-  ]
+module.exports = {
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: process.env.NODE_ENV === 'development',
+                        },
+                    },
+                    'css-loader', // translates CSS into CommonJS
+                    'less-loader', // compiles Less to CSS
+                ],
+            }
+        ]
+    },
+    plugins: [
+        // make sure to include the plugin!
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        })
+    ],
 };
-
-
-module.exports = [
-  merge(config, {
-    entry: path.resolve(__dirname + '/src/plugin.js'),
-    output: {
-      filename: 'vue-floatl.min.js',
-      libraryTarget: 'window',
-      library: 'VueFloatl',
-    }
-  }),
-  merge(config, {
-    entry: path.resolve(__dirname + '/src/VueFloatl.vue'),
-    output: {
-      filename: 'vue-floatl.js',
-      libraryTarget: 'umd',
-      library: 'vue-floatl',
-      umdNamedDefine: true
-    }
-  })
-];
