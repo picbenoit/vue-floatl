@@ -42,4 +42,12 @@ module.exports = {
             filename: '[name].css',
         })
     ],
+    entry: {
+       'vue-floatl': './src/index.js'
+    },
+    output: {
+        filename: '[name].js',
+        libraryTarget: 'window',
+        library: 'VueFloatl',
+    }
 };

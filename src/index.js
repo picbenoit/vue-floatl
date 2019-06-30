@@ -1,9 +1,7 @@
 require('./vuefloatl.less');
 
-import VueFloatl from './VueFloatl.vue';
-
 module.exports = {
   install: function (Vue, options) {
-    Vue.component('v-floatl', VueFloatl);
+    Vue.component('v-floatl', require('./VueFloatl.vue').default);
   }
 };

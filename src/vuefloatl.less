@@ -11,8 +11,8 @@
 @floatl-backgroud-color: white;
 @floatl-active-color: hsl(209, 82%, 54%);
 
-@floatl-input-height: 26px;
-@floatl-input-width: calc(100% - @floatl-border-width*2 - @floatl-hpadding*2);
+@floatl-input-height: 48px;
+@floatl-input-width: 100%;
 
 .floatl {
   position: relative;
@@ -82,4 +82,7 @@
 input.floatl__input {
   height: @floatl-input-height;
   width: @floatl-input-width;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
