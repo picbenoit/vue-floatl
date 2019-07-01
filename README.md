@@ -9,7 +9,7 @@ A test is available on test folder (online test comming soon)
 ## Installation
 
 ```js
-npm i --S vue-floatl
+npm i vue-floatl
 ```
 
 ### Browser
