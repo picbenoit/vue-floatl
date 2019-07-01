@@ -4,7 +4,7 @@ A Vue component for [floatl package](https://github.com/richardvenneman/floatl) 
 
 ## Demo
 
-Comming soon
+A test is available on test folder (online test comming soon)
 
 ## Installation
 
@@ -46,7 +46,7 @@ Vue.use(VueFloatl);
 
 ### CSS / Less
 
-CSS and Less file are available there :
+CSS (minified) and Less file are available there :
 - dist/vuefloatl.css
 - src/vuefloatl.less
 
