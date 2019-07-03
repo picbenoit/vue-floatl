@@ -1,6 +1,6 @@
 {
   "name": "vue-floatl",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Vue component for floatl package (with less & css)",
   "main": "src/plugin.js",
   "scripts": {

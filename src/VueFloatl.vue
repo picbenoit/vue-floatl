@@ -1,7 +1,9 @@
 <template>
     <div class="floatl" ref="floatl">
         <label class="floatl__label">{{ label }}</label>
-        <input :name="name" class="floatl__input" :class="inputClass" :placeholder="label" :type="type" :value="value" @input="$emit('input', $event.target.value)" />
+        <slot>
+            <input :name="name" :required="required" class="floatl__input" :class="inputClass" :placeholder="label" :type="type" :value="value" @input="$emit('input', $event.target.value)" />
+        </slot>
     </div>
 </template>
 
@@ -14,6 +16,10 @@
                 default: ""
             },
             name: {
+                default: false
+            },
+            required: {
+                type: Boolean,
                 default: false
             },
             inputClass: {

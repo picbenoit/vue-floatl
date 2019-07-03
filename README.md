@@ -62,6 +62,20 @@ Once installed, it can be used in a template as simply as:
 
 - label (default: "My label")
 - value (or v-model, default: "")
+- required : if input field is required (default: false)
 - name: if you want put a name to your input (default: no name attribute)
 - inputClass: if you want to add classes to your input (you can use vue class syntax)
 - type: type of yout input (default: "text")
+
+## Usage via slot
+
+In some case, you want to have a full access to your input to add some specific other properties.
+vue-floatl allow you to define your input via slot. Here an example :
+
+```html
+<v-floatl label="Test with sloat">
+    <input type="password" class="floatl__input" placeholder="Test with sloat">
+</v-floatl>
+```
+
+To working, your input must have the "floatl__input" class define and the label placeholder.
