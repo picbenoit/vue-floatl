@@ -55,7 +55,7 @@ CSS (minified) and Less file are available there :
 Once installed, it can be used in a template as simply as:
 
 ```html
-<v-floatl :label="Your email" v-model="email"></v-floatl>
+<v-floatl label="Your email" v-model="email"></v-floatl>
 ```
 
 ## Properties (no one is required)
